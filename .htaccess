@@ -1,0 +1,28 @@
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress
+
+<Files wp-login.php>
+AuthName 'Restricted Area'
+AuthType Basic
+AuthUserFile /var/www/.authfile
+Require user wpadmin
+</Files>
+
+<Files xmlrpc.php>
+Order Deny,Allow
+Deny from all
+</Files>
+
+
+Redirect 301 /sertifikaciia/sertifikaciya-iso-9001.html  http://testspb-ru.tw1.su/sertifikaciya-iso-9001
+
